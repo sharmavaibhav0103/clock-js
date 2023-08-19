@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: bisque;
+      }
+      .clock {
+        /* border: 1px solid black; */
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+      .clock-img {
+        width: 100%;
+        height: 99.4%;
+        border-radius: 50%;
+      }
+      .h,
+      .m,
+      .s {
+        position: absolute;
+      }
+      .h {
+        height: 170px;
+        background-color: black;
+        width: 10px;
+        left: 49.5%;
+        top: 28%;
+        transform-origin: bottom;
+        transform: rotate(00deg);
+        /* visibility: hidden; */
+      }
+      .m {
+        left: 50%;
+        top: 25%;
+        height: 190px;
+        width: 5px;
+        background-color: black;
+        transform-origin: bottom;
+        transform: rotate(00deg);
+        /* visibility: hidden; */
+      }
+      .s {
+        width: 2px;
+        height: 210px;
+        background-color: black;
+        top: 22%;
+        left: 50%;
+        transform-origin: bottom;
+        transform: rotate(00deg);
+        /* visibility: hidden; */
+      }
+
+      .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: black;
+        left: 48.3%;
+        top: 48.3%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="clock">
+        <img src="./assets/clock.jpg" alt="" class="clock-img" />
+        <div class="circle"></div>
+
+        <div class="h"></div>
+        <div class="m"></div>
+        <div class="s"></div>
+      </div>
+    </div>
+
+    <script>
+      const sH = document.querySelector(".s");
+      const mH = document.querySelector(".m");
+      const hH = document.querySelector(".h");
+
+      setInterval(() => {
+        const d = new Date();
+        let h = d.getHours() % 12;
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+
+        let sD = s * 6;
+        let mD = m * 6;
+        let hD = h * 30;
+
+        sH.style.transform = `rotate(${sD}deg)`;
+        mH.style.transform = `rotate(${mD}deg)`;
+        hH.style.transform = `rotate(${hD}deg)`;
+      }, 1000);
+    </script>
+  </body>
+</html>
