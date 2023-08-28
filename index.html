@@ -8,84 +8,94 @@
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
       }
-      .main {
+      body {
+        /* background-color: #d9d7dd; */
+        /* height: 100vh; */
+        width: 100vw;
+        /* border: 10px solid black; */
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100vw;
+
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
         height: 100vh;
-        background-color: bisque;
-      }
-      .clock {
-        /* border: 1px solid black; */
-        height: 100%;
-        width: 50%;
-        position: relative;
-      }
-      .clock-img {
-        width: 100%;
-        height: 99.4%;
-        border-radius: 50%;
-      }
-      .h,
-      .m,
-      .s {
-        position: absolute;
-      }
-      .h {
-        height: 170px;
-        background-color: black;
-        width: 10px;
-        left: 49.5%;
-        top: 28%;
-        transform-origin: bottom;
-        transform: rotate(00deg);
-        /* visibility: hidden; */
-      }
-      .m {
-        left: 50%;
-        top: 25%;
-        height: 190px;
-        width: 5px;
-        background-color: black;
-        transform-origin: bottom;
-        transform: rotate(00deg);
-        /* visibility: hidden; */
-      }
-      .s {
-        width: 2px;
-        height: 210px;
-        background-color: black;
-        top: 22%;
-        left: 50%;
-        transform-origin: bottom;
-        transform: rotate(00deg);
-        /* visibility: hidden; */
       }
 
-      .circle {
-        width: 30px;
-        height: 30px;
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .clock {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        /* border: 1px solid black; */
+        box-shadow: inset 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
+        background-color: whitesmoke;
         border-radius: 50%;
+      }
+      .circle {
         position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: whitesmoke;
+        left: 48%;
+        top: 48%;
+        z-index: 1;
+      }
+      .h {
+        transform-origin: bottom;
         background-color: black;
-        left: 48.3%;
-        top: 48.3%;
+        box-shadow: 2px 2px 2px 1px rgba(115, 114, 114, 0.388);
+        width: 3px;
+        height: 80px;
+        position: absolute;
+        left: 49.5%;
+        top: 23%;
+      }
+      .m {
+        transform-origin: bottom;
+        background-color: rgb(69, 64, 64);
+        box-shadow: 2px 2px 2px 1px rgba(115, 114, 114, 0.388);
+        width: 2px;
+        height: 100px;
+        position: absolute;
+        left: 49.5%;
+        top: 17%;
+      }
+      .s {
+        transform-origin: bottom;
+        background-color: rgb(193, 27, 27);
+        box-shadow: 2px 2px 2px 1px rgba(115, 114, 114, 0.388);
+        width: 2px;
+        height: 100px;
+        position: absolute;
+        left: 49.5%;
+        top: 17%;
       }
     </style>
   </head>
   <body>
-    <div class="main">
-      <div class="clock">
-        <img src="./assets/clock.jpg" alt="" class="clock-img" />
-        <div class="circle"></div>
+    <div class="clock">
+      <div class="circle"></div>
 
-        <div class="h"></div>
-        <div class="m"></div>
-        <div class="s"></div>
-      </div>
+      <div class="h"></div>
+      <div class="m"></div>
+      <div class="s"></div>
     </div>
 
     <script>
